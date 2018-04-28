@@ -2,6 +2,9 @@ var d;
 var startTime;
 var currentTime = d;
 var clockRunning = false;
+var timeElapsed = [00,00,00];
+var timeElapsedRaw = 0;
+
 
 //functions
 function clockRun(){
@@ -9,6 +12,7 @@ function clockRun(){
         updateClock();
         currentTime = [d.getHours(), d.getMinutes(), d.getSeconds()];
         document.getElementById("current-time-display").innerHTML = currentTime.join(":");
+        updateTimeElapsed();
     }
     setTimeout(clockRun,1000);
 }
@@ -22,6 +26,16 @@ function startClock(){
 
 function updateClock(){
     d = new Date();
+}
+
+function updateTimeElapsed(){
+    var hours, minutes, seconds;
+    timeElapsedRaw ++;
+    timeElapsed[2] = timeElapsedRaw%60;
+    timeElapsed[1] = Math.floor(timeElapsedRaw/60);
+    console.log(timeElapsedRaw);
+    console.log(timeElapsed);
+    document.getElementById("time-elapsed-display").innerHTML = timeElapsed.join(":");
 }
 
 //onload
