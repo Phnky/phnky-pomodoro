@@ -2,7 +2,7 @@ var d;
 var startTime;
 var currentTime = d;
 var clockRunning = false;
-var timeElapsed = [00,00,00];
+var timeElapsed = [0,0,0];
 var timeElapsedRaw = 0;
 
 
@@ -44,6 +44,13 @@ document.onload = function(){
 };
 
 //event handlers
+document.getElementById("reset-button").onclick = function(){
+  timeElapsedRaw = 0;
+  timeElapsed = [0,0,0];
+  document.getElementById("start-time-display").innerHTML = "";
+  document.getElementById("current-time-display").innerHTML = "";
+  document.getElementById("time-elapsed-display").innerHTML= timeElapsed.join(":");
+};
 document.getElementById("start-button").onclick = function(){
     updateClock();
     startClock();
