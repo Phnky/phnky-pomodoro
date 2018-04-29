@@ -20,6 +20,8 @@ function clockRun(){
 function startClock(){
     startTime = [d.getHours(), d.getMinutes(), d.getSeconds()];
     document.getElementById("start-time-display").innerHTML = startTime.join(":");
+    document.getElementById("current-time-display").innerHTML = startTime.join(":");
+    document.getElementById("time-elapsed-display").innerHTML = "0:0:0";
     clockRunning = true;
 }
 
