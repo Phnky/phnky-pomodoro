@@ -21,7 +21,6 @@ function startClock(){
     startTime = [d.getHours(), d.getMinutes(), d.getSeconds()];
     document.getElementById("start-time-display").innerHTML = startTime.join(":");
     clockRunning = true;
-    clockRun();
 }
 
 function updateClock(){
@@ -39,8 +38,9 @@ function updateTimeElapsed(){
 }
 
 //onload
-document.onload = function(){
-
+window.onload = function(){
+  console.log("test");
+  clockRun();
 };
 
 //event handlers
