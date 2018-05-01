@@ -19,6 +19,15 @@ function clockRun() {
   setTimeout(clockRun, 1000); //runs once a second
 }
 
+function setTimer(a) {
+  if (clockRunning == false) {
+    console.log("setting time to " + a);
+    timerInitial = a;
+  } else{
+    console.log("timer not set clock is running");
+  }
+}
+
 function startClock() {
   startTime = [d.getHours(), d.getMinutes(), d.getSeconds()];
   document.getElementById("start-time-display").innerHTML = startTime.join(":");
@@ -58,7 +67,6 @@ function updateTimeLeft() {
 
 //onload
 window.onload = function() {
-  console.log("test");
   clockRun();
 };
 
@@ -78,4 +86,13 @@ document.getElementById("start-button").onclick = function() {
 };
 document.getElementById("stop-button").onclick = function() {
   clockRunning = false;
+};
+document.getElementsByClassName("time-selection")[0].onclick = function() {
+  setTimer(300);
+};
+document.getElementsByClassName("time-selection")[1].onclick = function() {
+  setTimer(600);
+};
+document.getElementsByClassName("time-selection")[2].onclick = function() {
+  setTimer(1500);
 };
